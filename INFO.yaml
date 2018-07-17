@@ -1,0 +1,64 @@
+---
+project: 'C-RAN'
+project_creation_date: '2018-07-17'
+project_category: 'Integration & Testing'
+lifecycle_state: 'Incubation'
+project_lead: &opnfv_cran_ptl
+    name: 'Rongwei Ren'
+    company: 'China Mobile'
+    email: 'renrongwei@chinamobile.com'
+    id: ''
+    timezone: 'China/Beijing'
+primary_contact: *opnfv_cran_ptl
+issue_tracking:
+    type: 'jira'
+    url: 'https://jira.opnfv.org/projects/CRAN'
+    key: 'CRAN'
+mailing_list:
+    type: 'groups.io'
+    url: 'https://lists.opnfv.org/g/opnfv-tech-discuss/'
+    tag: '[CRAN]'
+realtime_discussion:
+    type: 'IRC'
+    server: 'freenode.net'
+    channel: '#opnfv-cran'
+meetings:
+    - type: 'zoom+irc'
+      agenda: 'https://wiki.opnfv.org/display/INF/Infra+Working+Group'
+      url: 'https://zoom.us/j/855550464 '
+      server: 'freenode.net'
+      channel: '#opnfv-meeting'
+      repeats: 'weekly'
+      time: '3:00:00 UTC'
+repositories:
+    - 'cran'
+committers:
+    - <<: *opnfv_cran_ptl
+    - name: 'Pasi Vaananen'
+      email: 'pvaanane@redhat.com'
+      company: 'redhat'
+      id: 'pasivaan'
+      timezone: ''
+    - name: 'Ulas Kozat'
+      email: 'ulas.kozat@huawei.com'
+      company: 'huawei'
+      id: 'kozat'
+      timezone: ''
+    - name: 'Xiaohua Zhang'
+      email: 'xiaohua.zhang@163.com'
+      company: '163'
+      id: 'Xiaohua626'
+      timezone: ''
+      # Azhar Sayeed <asayeed@redhat.com>
+      # Tapio Tallgren <tapio.tallgren@nokia.com>
+      # Ren Rongwei renrongwei@chinamobile.com
+      # Li Baoqian baoqian.li@intel.com
+      # Ni weichen <niweichen@chinamobile.com>
+      # Invitations not yet accepted ^
+tsc:
+    # yamllint disable rule:line-length
+    approval: 'http://meetbot.opnfv.org/meetings/opnfv-meeting/2018/opnfv-meeting.2018-02-27-13.57.log.html'
+    changes:
+        - type: 'PTL'
+          name: 'Rongwei Ren'
+          link: 'https://lists.opnfv.org/g/opnfv-tech-discuss/topic/23021807#21533'
