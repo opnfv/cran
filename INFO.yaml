@@ -4,11 +4,11 @@ project_creation_date: '2018-07-17'
 project_category: 'Integration & Testing'
 lifecycle_state: 'Incubation'
 project_lead: &opnfv_cran_ptl
-    name: 'Rongwei Ren'
+    name: 'Weichen Ni'
     company: 'China Mobile'
-    email: 'renrongwei@chinamobile.com'
-    id: ''
-    timezone: 'China/Beijing'
+    email: 'niweichen@chinamobile.com'
+    id: 'weichen'
+    timezone: 'China/Beijing'    
 primary_contact: *opnfv_cran_ptl
 issue_tracking:
     type: 'jira'
@@ -25,7 +25,7 @@ realtime_discussion:
 meetings:
     - type: 'zoom+irc'
       agenda: 'https://wiki.opnfv.org/display/INF/Infra+Working+Group'
-      url: 'https://zoom.us/j/855550464 '
+      url: 'https://zoom.us/j/452194858 '
       server: 'freenode.net'
       channel: '#opnfv-meeting'
       repeats: 'weekly'
@@ -34,20 +34,15 @@ repositories:
     - 'cran'
 committers:
     - <<: *opnfv_cran_ptl
-    - name: 'Pasi Vaananen'
-      email: 'pvaanane@redhat.com'
-      company: 'redhat'
-      id: 'pasivaan'
-      timezone: ''
     - name: 'Ulas Kozat'
       email: 'ulas.kozat@huawei.com'
       company: 'huawei'
       id: 'kozat'
       timezone: ''
     - name: 'Xiaohua Zhang'
-      email: 'xiaohua.zhang@163.com'
-      company: '163'
-      id: 'Xiaohua626'
+      email: 'xiaohua.zhang@windriver.com'
+      company: 'windriver'
+      id: 'Xiaohua'
       timezone: ''
       # Azhar Sayeed <asayeed@redhat.com>
       # Tapio Tallgren <tapio.tallgren@nokia.com>
@@ -62,3 +57,8 @@ tsc:
         - type: 'PTL'
           name: 'Rongwei Ren'
           link: 'https://lists.opnfv.org/g/opnfv-tech-discuss/topic/23021807#21533'
+    changes:
+        - type: 'PTL'
+          name: 'Weichen Ni'
+          link: 'https://lists.opnfv.org/g/opnfv-tech-discuss/message/22739?p=,,,20,0,0,0::relevance,,Call+for+PTL+election,20,2,0,29577923'
+
