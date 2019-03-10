@@ -34,11 +34,6 @@ repositories:
     - 'cran'
 committers:
     - <<: *opnfv_cran_ptl
-    - name: 'Pasi Vaananen'
-      email: 'pvaanane@redhat.com'
-      company: 'redhat'
-      id: 'pasivaan'
-      timezone: ''
     - name: 'Ulas Kozat'
       email: 'ulas.kozat@huawei.com'
       company: 'huawei'
