@@ -4,10 +4,10 @@ project_creation_date: '2018-07-17'
 project_category: 'Integration & Testing'
 lifecycle_state: 'Incubation'
 project_lead: &opnfv_cran_ptl
-    name: 'Rongwei Ren'
+    name: 'Weichen Ni'
     company: 'China Mobile'
-    email: 'renrongwei@chinamobile.com'
-    id: ''
+    email: 'niweichen@chinamobile.com'
+    id: 'weichen'
     timezone: 'China/Beijing'
 primary_contact: *opnfv_cran_ptl
 issue_tracking:
@@ -34,11 +34,6 @@ repositories:
     - 'cran'
 committers:
     - <<: *opnfv_cran_ptl
-    - name: 'Pasi Vaananen'
-      email: 'pvaanane@redhat.com'
-      company: 'redhat'
-      id: 'pasivaan'
-      timezone: ''
     - name: 'Ulas Kozat'
       email: 'ulas.kozat@huawei.com'
       company: 'huawei'
@@ -62,3 +57,6 @@ tsc:
         - type: 'PTL'
           name: 'Rongwei Ren'
           link: 'https://lists.opnfv.org/g/opnfv-tech-discuss/topic/23021807#21533'
+        - type: 'PTL'
+          name: 'Weichen Ni'
+          link: 'https://lists.opnfv.org/g/opnfv-tech-discuss/message/22737'
