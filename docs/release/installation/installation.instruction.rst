@@ -1,6 +1,7 @@
 .. This work is licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 
+
 ========
 Abstract
 ========
@@ -34,10 +35,8 @@ Introduction
 ============
 <INTRODUCTION TO THE SCOPE AND INTENTION OF THIS DOCUMENT AS WELL AS TO THE SYSTEM TO BE INSTALLED>
 
-<EXAMPLE>:
 
-This document describes the supported software and hardware configurations for the
-Fuel OPNFV reference platform as well as providing guidelines on how to install and
+This document describes the supported software and hardware configurations for the OPNFV C-RAN project relative reference as well as providing guidelines on how to install and
 configure such reference system.
 
 Although the available installation options gives a high degree of freedom in how the system is set-up,
@@ -50,161 +49,130 @@ The audience of this document is assumed to have good knowledge in network and U
 
 Preface
 =======
-<DESCRIBE NEEDED PREREQUISITES, PLANNING, ETC.>
+<DESCRI
+BE NEEDED PREREQUISITES, PLANNING, ETC.>
 
-<EXAMPLE>:
+Before starting the installation of C-RAN@OPNFV, some planning must preceed.
 
-Before starting the installation of Fuel@OPNFV, some planning must preceed.
+First of all, you need to download OAI eNodeB and UE tar packeage and have them installed.
+link as follow :
 
-First of all, the Fuel@OPNFV .iso image needs to be retrieved,
-the Latest stable Arno release of Fuel@OPNFV can be found here: <www.opnfv.org/abc/def>
+The eNodeB code link :
+https://drive.google.com/open?id=1_BiK2vgfxdHg3hsBxvwCObcal3bVP0SD
 
-Alternatively, you may build the .iso from source by cloning the opnfv/genesis git repository:
-<git clone https://<linux foundation uid>@gerrit.opnf.org/gerrit/genesis>
-Check-out the Arno release:
-<cd genesis; git checkout arno>
-Goto the fuel directory and build the .iso
-<cd fuel/build; make all>
+The UE code link:
+https://drive.google.com/open?id=1pwepCkk2FU6hClRL_lLnsTVYkKkGcUci
 
-Familiarize yourself with the Fuel 6.0.1 version by reading the following documents:
-- abc <http://wiki.openstack.org/abc>
-- def <http://wiki.openstack.org/def>
-- ghi <http://wiki.openstack.org/ghi>
 
-Secondly, a number of deployment specific parameters must be collected, those are:
+Software requirements
+=====================
 
-1.     Provider sub-net and gateway information
+you will need a node of baremental envirment with two VMs.
 
-2.     Provider VLAN information
+Host OS: centos  x86_64-linux-3.10.0-51.el7.x86_64
 
-3.     Provider DNS addresses
+Guest os: ubuntu 14.04.3 linux kernel>=3.19
 
-4.     Provider NTP addresses
-
-This information will be needed for the configuration procedures provided in this document.
+VM model: Memory: 4GB, hard disk: 15GB, vCPU: 2
 
 
 Hardware requirements
 =====================
-<PROVIDE A LIST OF MINIMUM HARDWARE REQUIREMENTS NEEDED FOR THE INSTALL>
 
-<EXAMPLE>:
+Following minimum hardware requirements must be met for installation of C-RAN@OPNFV:
 
-Following minimum hardware requirements must be met for installation of Fuel@OPNFV:
-
-+--------------------+----------------------------------------------------+
-| **HW Aspect**      | **Requirement**                                    |
-|                    |                                                    |
-+--------------------+----------------------------------------------------+
-| **# of servers**   | Minimum 5 (3 for non redundant deployment)         |
-|                    | 1 Fuel deployment master (may be virtualized)      |
-|                    | 3(1) Controllers                                   |
-|                    | 1 Compute                                          |
-+--------------------+----------------------------------------------------+
-| **CPU**            | Minimum 1 socket x86_AMD64 Ivy bridge 1.6 GHz      |
-|                    |                                                    |
-+--------------------+----------------------------------------------------+
-| **RAM**            | Minimum 16GB/server (Depending on VNF work load)   |
-|                    |                                                    |
-+--------------------+----------------------------------------------------+
-| **Disk**           | Minimum 256GB 10kRPM spinning disks                |
-|                    |                                                    |
-+--------------------+----------------------------------------------------+
-| **NICs**           | 2(1)x10GE Niantec for Private/Public (Redundant)   |
-|                    |                                                    |
-|                    | 2(1)x10GE Niantec for SAN (Redundant)              |
-|                    |                                                    |
-|                    | 2(1)x1GE for admin (PXE) and control (RabitMQ,etc) |
-|                    |                                                    |
-+--------------------+----------------------------------------------------+
+Suggeted hardwrare, other capable hardware is fine.
+HP DL380 PGen8, memory 64G, frequency 3.0, network card 100Mbps, hard disk 600GB
 
 
-Top of the rack (TOR) Configuration requirements
+
+Installation manual
 ================================================
-<DESCRIBE NEEDED NETWORK TOPOLOGY SETUP IN THE TORs>
 
-<EXAMPLE>:
-
-The switching infrastructure provides connectivity for the OPNFV infra-structure operations as well as
-for the tenant networks (East/West) and provider connectivity (North/South bound connectivity).
-The switching connectivity can (but does not need to) be fully redundant,
-in case it and comprises a redundant 10GE switch pair for "Traffic/Payload/SAN" purposes as well as
-a 1GE switch pair for "infrastructure control-, management and administration"
-
-The switches are **not** automatically configured from the OPNFV reference platform.
-All the networks involved in the OPNFV infra-structure as well as the provider networks
-and the private tenant VLANs needs to be manually configured.
-
-This following sections guides through required black-box switch configurations.
-
-VLAN considerations and blue-print
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-IP Address plan considerations and blue-print
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Based on the OAI community, CMCC contributes different version of BBU function realization. CMCC will update code when the internal legal process finished. 
 
 
-OPNFV Software installation and deployment
-==========================================
-<DESCRIBE THE FULL PROCEDURES FOR THE INSTALLATION OF THE OPNFV COMPONENT INSTALLATION AND DEPLOYMENT>
+I. Initial environment construction
 
-<EXAMPLE>:
+1. Operating System : ubuntu14.04 version, linux kernel 3.19
 
-This section describes the installation of the Fuel@OPNFV installation server (Fuel master)
-as well as the deployment of the full OPNFV reference platform stack across a server cluster.
-Etc.
+2. In VM1, decompress the eNB.tar. In VM2, decompress the UE.tar.
 
-Install Fuel master
-^^^^^^^^^^^^^^^^^^^^^
+eNB.tar and UE.tar can be stored anywhere you like, take /home/ as an example.
 
-Create an OPNV (Fuel Environment)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cd /home/
 
-Configure the OPNFV environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tar –xzvf eNB.tar
 
-Deploy the OPNFV environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tar –xzvf UE.tar
 
+3. Run the following command in two VMs respectively:
 
-Installation health-check
-=========================
-<DESCRIBE ANY MEANS TO DO VERIFY THE INTEGRITY AND HEALTHYNESS OF THE INSTALL>
+Open directory: cd openairinterface5g-develop-nos1/cmake_targets
 
-<EXAMPLE>:
+Executive command (under root mode): ./build_oai -I --oaisim -x --install-system-files
 
-Now that the OPNFV environment has been created, and before the post installation configurations is started,
-perform a system health check from the Fuel GUI:
-
-- Select the "Health check" TAB.
-- Select all test-cases
-- And click "Run tests"
-
-All test cases except the following should pass:
-
-Post installation and deployment actions
-------------------------------------------
-<DESCRIBE ANY POST INSTALLATION ACTIONS/CONFIGURATIONS NEEDED>
-
-<EXAMPLE>:
-After the OPNFV deployment is completed, the following manual changes needs to be performed in order
-for the system to work according OPNFV standards.
-
-**Change host OS password:**
-Change the Host OS password by......
+Intall the lib and related tools.
 
 
-References
-==========
-<PROVIDE NEEDED/USEFUL REFERENCES>
 
-<EXAMPLES>:
+II. VM1 configuration:
 
-OPNFV
-^^^^^^^^^^
 
-OpenStack
-^^^^^^^^^^^
+1. Open directory: openairinterface5g-develop-nos1/cmake_targets
 
-OpenDaylight
-^^^^^^^^^^^^^^^
+2. Run the script: sh build_rcc.sh
+
+3. Run the script: sh run_rcc.sh
+
+
+III. VM2 configuration
+
+1. Configure the VM external communication IP
+
+(1) Open file: openairinterface5g-develop-nos1/targets/PROJECTS/GENERIC-LTE-EPC/CONF/ rru.oaisim.conf
+
+(2) Modify the local network address, including the UE IP and local network port IP.
+
+ RUs=(
+
+{
+
+local_if_name = "";//Local network port name, e.g.eth0
+
+remote_address = ""; //UE IP
+
+ local_address = "";// IP of local network port
+
+……
+
+}）
+
+2. Code compiling:
+
+(1) Open directory: openairinterface5g-develop-nos1/cmake_targets
+
+(2) Run the script: sh build_rcc.sh
+
+(3) Run the script: sh run_rcc.sh
+
+(4) access success: In VM1, get the following log  RRCConnectionReconfigurationComplete
+
+(5) Test case description
+ 
+
+Test objection: Test the NFVI platform supporting for radio access network
+
+Test index: Observe the downlink bandwidth of radio access network
+
+Test scheme: Launch the Iperf function respectively in VM1 and VM2. The UE VM launches the iperf server, eNB launches the iperf client.
+
+Test procedure:  
+
+IP: eNB ip is 10.0.1.1, UE ip is 10.0.1.2  (If you want to modify the ip, check the openairinterface5g-develop-nos1/targets/tools/init_nas_nos1)
+The destination IP is: 10.0.1.2, , the source IP is: 10.0.1.1
+Under UDP mode, Iperf client sends the packets to iperf server, the test time continues 120s, the number of connection is one, the packet loss limit to 0.6%, recording the network bandwidth.
+
+Futher test command can be found on C-RAN wiki page:
+https://wiki.opnfv.org/pages/viewpage.action?pageId=24576836
+
