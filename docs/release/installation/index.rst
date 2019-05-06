@@ -9,3 +9,5 @@
    :maxdepth: 1
 
    installation.instruction
+
+This docs directory will help use to build up C-RAN project relative code and non-code program. 
