@@ -8,4 +8,4 @@
 .. toctree::
    :maxdepth: 1
 
-   release-notes
+This folder contain OPNFV C-RAN project release-notes
