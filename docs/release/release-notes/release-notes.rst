@@ -19,8 +19,8 @@ Version history
 | 2019-03-19         | 0.1.0              | Weichen Ni         | First draft        |
 |                    |                    |                    |                    |
 +--------------------+--------------------+--------------------+--------------------+
-|                    |                    |                    |                    |
-|                    |                    |                    |                    |
+| 2019-5-16          | 0.1.1              | Weichen Ni         | First release      |
+|		     |                    |                    |                    |
 +--------------------+--------------------+--------------------+--------------------+
 |                    |                    |                    |                    |
 |                    |                    |                    |                    |
@@ -55,19 +55,19 @@ Release Data
 <EXAMPLE>:
 
 +--------------------------------------+--------------------------------------+
-| **Project**                          | E.g. Arno/genesis/fuel@opnfv         |
+| **Project**                          | gerrit.opnfv.org/gerrit/cran         |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
 | **Repo/commit-ID**                   | E.g. genesis/adf634a0d4.....         |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Release designation**              | E.g. Arno RC2                        |
+| **Release designation**              | gerrit.opnfv.org/gerrit/cran         |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Release date**                     | E.g. 2015-04-16                      |
+| **Release date**                     | 2019-05-16                           |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Purpose of the delivery**          | E.g. OPNFV Internal quality assurance|
+| **Purpose of the delivery**          | OPNFV H release		      |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
 
@@ -80,9 +80,7 @@ Module version changes
 
 <EXAMPLE>:
 
-- Fuel have changed from 5.1 to 6.0.1
 
-- OpenDaylight has changed from Helium-SR1 to Helium-SR2
 
 Document version changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -90,7 +88,6 @@ Document version changes
 
 <EXAMPLE>:
 
-- The Fuel@OPNFV installation guide version has changed from version 0.1 to to 0.2
 
 Reason for version
 ^^^^^^^^^^^^^^^^^^^^
@@ -156,15 +153,13 @@ System Limitations
 
 <EXAMPLE>:
 
-**Max number of blades:**   1 Fuel master, 3 Controllers, 20 Compute blades
+**Max number of blades:**   two nodes
 
-**Min number of blades:**   1 Fuel master, 1 Controller, 1 Compute blade
+**Min number of blades:**   one node
 
-**Storage:**    Ceph is the only supported storage configuration.
+**Storage:**    no specific limitation
 
-**Max number of networks:**   3800 (Needs special switch config.)
 
-**L3Agent:**   L3 agent and floating IPs is not supported.
 
 Known issues
 ^^^^^^^^^^^^^^^
